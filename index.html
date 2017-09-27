@@ -157,7 +157,6 @@
     <div id="right-panel">
       <h2>Results</h2>
       <ul id="places"></ul>
-      <button id="more">More results</button>
     </div>
     <div id="map"></div>
 
@@ -195,6 +194,9 @@
         searchBox.addListener('places_changed', function() {
           var places = searchBox.getPlaces();
 
+          var placesList = document.getElementById('places');
+          placesList.innerHTML = ''
+
           if (places.length == 0) {
             return;
           }
@@ -227,7 +229,6 @@
               title: place.name,
               position: place.geometry.location
             }));
-            var placesList = document.getElementById('places');
             placesList.innerHTML += '<li>' + place.name + '</li>';
 
 
